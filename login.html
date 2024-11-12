@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập tài khoản của bạn | Herculis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="icon" type="image/x-icon" href="img/"> <!-- Tạo icon -->
+    <style>
+        .divider:after,
+        .divider:before {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #eee;
+        }
+
+        .h-custom {
+            height: calc(100% - 73px);
+        }
+
+        @media (max-width: 450px) {
+            .h-custom {
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="p-3 bg-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+                    <p>Herculis</p>
+                </a>
+
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+                </ul>
+
+
+                <div class="text-end">
+                    <a href="feedback.html" class="btn btn-default">Góp ý</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- FORM ĐĂNG NHẬP -->
+    <section class="vh-100">
+        <!-- HÌNH ẢNH -->
+        <div class="container-fluid h-custom">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-md-9 col-lg-6 col-xl-5">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                        class="img-fluid" alt="Sample image">
+                </div>
+
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                    <form>
+                        <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+                            <p class="lead fw-normal mb-0 me-3">Đăng nhập tài khoản</p>
+                        </div>
+
+                        <div class="divider d-flex align-items-center my-4">
+                        </div>
+                        <!-- CHỌN VAI TRÒ -->
+                        <p>Chọn vai trò của bạn</p>
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <option value="1">Học sinh</option>
+                            <option value="2">Giáo viên</option>
+                          </select>
+
+                        <!-- NHẬP EMAIL -->
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <input type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Email" />
+                        </div>
+
+                        <!-- NHẬP MẬT KHẨU -->
+                        <div data-mdb-input-init class="form-outline mb-3">
+                            <input type="password" id="form3Example4" class="form-control form-control-lg"
+                                placeholder="Mật khẩu" />
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <!-- GHI NHỚ TÀI KHOẢN -->
+                            <div class="form-check mb-0">
+                                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+                                <label class="form-check-label" for="form2Example3">Ghi nhớ tài khoản</label>
+                            </div>
+
+                            <a href="reset-password.html" class="text-body">Quên mật khẩu?</a>
+                        </div>
+
+                        <div class="text-center text-lg-start mt-4 pt-2">
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init
+                                class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Đăng
+                                nhập</button>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">Bạn chưa có tài khoản? <a href="signup.html"
+                                    class="link-danger">Đăng ký ngay!</a></p>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
