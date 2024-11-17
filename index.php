@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -8,7 +12,61 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="icon" type="image/x-icon" href="img/"> <!-- Tạo icon -->
+    <style>
+        /* Ảnh USER */
+        .user-pic {
+            width: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
 
+        .sub-menu-wrap {
+            display: none;
+            /* Ẩn menu mặc định */
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            z-index: 10;
+            width: 200px;
+        }
+
+        .sub-menu-wrap.show {
+            display: block;
+            /* Hiển thị menu khi có lớp 'show' */
+        }
+
+        .sub-menu {
+            padding: 10px;
+        }
+
+        .sub-menu a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            border-radius: 5px;
+        }
+
+        .sub-menu a:hover {
+            background-color: #f0f0f0;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .user-info img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 
 <body>
@@ -20,19 +78,30 @@
                     <p>Herculis</p>
                 </a>
 
-
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-
-                </ul>
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"></ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                     <input type="search" class="form-control form-control-dark w-100 w-lg-50" placeholder="Tìm kiếm..."
                         aria-label="Search">
                 </form>
 
-                <div class="text-end">
-                    <a href="login.php" class="btn btn-outline-primary me-2">Đăng nhập</a>
-                    <a href="signup.html" class="btn btn-primary">Đăng ký</a>
+                <div class="text-end position-relative">
+                    <?php if (isset($_SESSION['username'])): ?>
+                        <img src="img/user.png" class="user-pic" id="userPic">
+                        <div class="sub-menu-wrap" id="subMenu">
+                            <div class="sub-menu">
+                                <div class="user-info">
+                                    <img src="img/user.png" alt="User">
+                                    <h4><?= htmlspecialchars($_SESSION['username']); ?></h4>
+                                </div>
+                                <a href="user_settings.php">Cài đặt tài khoản</a>
+                                <a href="logout.php">Đăng xuất</a>
+                            </div>
+                        </div>
+                    <?php else: ?>
+                        <a href="login.php" class="btn btn-outline-primary me-2">Đăng nhập</a>
+                        <a href="signup.php" class="btn btn-primary">Đăng ký</a>
+                    <?php endif; ?>
                     <a href="feedback.php" class="btn btn-default">Góp ý</a>
                 </div>
             </div>
@@ -91,6 +160,23 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Hiển thị/Ẩn menu khi nhấn vào ảnh
+        const userPic = document.getElementById('userPic');
+        const subMenu = document.getElementById('subMenu');
+
+        userPic.addEventListener('click', () => {
+            subMenu.classList.toggle('show');
+        });
+
+        // Ẩn menu nếu nhấn ra ngoài
+        document.addEventListener('click', (e) => {
+            if (!subMenu.contains(e.target) && !userPic.contains(e.target)) {
+                subMenu.classList.remove('show');
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif (empty($password)) {
         $error_message = "<p class='text-center text-danger'>Vui lòng nhập mật khẩu.</p>";
     } elseif ($role == $valid_role && $username === $valid_username && $password === $valid_password) {
-        $_SESSION['LoggedIn'] = true;
+        $_SESSION['username'] = $_POST['username'];
         header("Location: index.php");
         exit();
     } else {
@@ -146,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <button type="submit" data-mdb-button-init data-mdb-ripple-init
                                 class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Đăng
                                 nhập</button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">Bạn chưa có tài khoản? <a href="signup.html"
+                            <p class="small fw-bold mt-2 pt-1 mb-0">Bạn chưa có tài khoản? <a href="signup.php"
                                     class="link-danger">Đăng ký ngay!</a></p>
                         </div>
 

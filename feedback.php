@@ -27,7 +27,7 @@
 
                 <div class="text-end">
                     <a href="login.php" class="btn btn-outline-primary me-2">Đăng nhập</a>
-                    <a href="signup.html" class="btn btn-primary">Đăng ký</a>
+                    <a href="signup.php" class="btn btn-primary">Đăng ký</a>
                 </div>
             </div>
         </div>
